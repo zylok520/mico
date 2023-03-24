@@ -84,7 +84,7 @@ fi
 
 # 下载远程脚本并检查是否成功
 now=`date +%s`
-mico=`curl --insecure -s –connect-timeout 4 -m 4 "https://ghproxy.com/https://raw.githubusercontent.com/FlashSoft/mico/master/mico.sh?${now}"`
+mico=`curl --insecure -s –connect-timeout 4 -m 4 "https://ghproxy.com/https://raw.githubusercontent.com/zylok520/mico/master/mico.sh?${now}"`
 # mico=`cat ./mico.sh`
 if [[ -z `echo "${mico}"|awk 'match($0,/FlashSoft/){print 1}'` ]];then
   echo "脚本下载不成功,可能你需要个酸酸乳"
