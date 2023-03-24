@@ -2,7 +2,7 @@
 root=`pwd`
 root=""
 # 脚本存放地址
-mico_path="${root}/root/mico.sh"
+mico_path="${root}/data/mico.sh"
 # 脚本开机启动
 mico_initpath="${root}/etc/init.d/mico_enable"
 mico_tmppath="/tmp"
@@ -25,7 +25,7 @@ echo ""
 echo "[!!!注意] 需要先有NodeRed服务并且提供了/miai这样的get接口(导入论坛提供的流就好)"
 echo "请输入NodeRed服务地址,默认值[http://192.168.1.1:1880/miai]:"
 read -p "" nodered_url
-[ -z "${nodered_url}" ] && nodered_url="http://192.168.1.1:1880/miai"
+[ -z "${nodered_url}" ] && nodered_url="http://192.168.2.248:1880/miai"
 
 echo "请输入你的NodeRed的账号和密码,如果没有密码请直接回车:"
 echo "格式为 账号:密码"
@@ -84,7 +84,7 @@ fi
 
 # 下载远程脚本并检查是否成功
 now=`date +%s`
-mico=`curl --insecure -s –connect-timeout 4 -m 4 "https://raw.githubusercontent.com/FlashSoft/mico/master/mico.sh?${now}"`
+mico=`curl --insecure -s –connect-timeout 4 -m 4 "https://ghproxy.com/https://raw.githubusercontent.com/FlashSoft/mico/master/mico.sh?${now}"`
 # mico=`cat ./mico.sh`
 if [[ -z `echo "${mico}"|awk 'match($0,/FlashSoft/){print 1}'` ]];then
   echo "脚本下载不成功,可能你需要个酸酸乳"
